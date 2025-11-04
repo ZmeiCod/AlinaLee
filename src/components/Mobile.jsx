@@ -21,7 +21,7 @@ export default function Mobile() {
   const [openMenu, SetOpenMenu] = React.useState(false);
 
   return (
-    <nav className="text-neutral-500 xl:hidden">
+    <nav className="text-black xl:hidden">
       <div
         onClick={() => SetOpenMenu(true)}
         className="text-3xl cursor-pointer"
@@ -45,7 +45,7 @@ export default function Mobile() {
             <Link to={"/about"}>История</Link>
           </li>
           <li>
-            <Link to={"/portfolio"}>Работы</Link>
+            <Link to={"/portfolio"}>Галерея</Link>
           </li>
           <li>
             <Link to={"/contact"}>Контакты</Link>

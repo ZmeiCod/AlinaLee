@@ -30,7 +30,7 @@ export default function Header() {
             to={"/portfolio"}
             className="text-neutral-500 hover:text-neutral-950 transition"
           >
-            Работы
+            Галерея
           </Link>
 
           <Link
