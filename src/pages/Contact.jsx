@@ -1,13 +1,28 @@
 import React from "react";
+/* eslint-disable-next-line no-unused-vars */
+import { motion } from "framer-motion";
+import { transition } from "../hooks/transitions";
 import WomanImg from "../assets/contact/woman.png";
 
 export default function Contact() {
   return (
-    <section className="section" id="contact">
+    <motion.section
+      initial={{ opacity: 0, y: "100%" }}
+      animate={{ opacity: 1, y: "0%" }}
+      exit={{ opacity: 0, y: "100%" }}
+      transition={transition}
+      className="section"
+      id="contact"
+    >
       <div className="container mx-auto h-full">
         <div className="flex flex-col lg:flex-row h-full items-center justify-start pt-36 gap-x-8 text-center lg:text-left">
-          <div className="hidden lg:flex bg-pink-100 absolute bottom-0 left-0 right-0 top-72 -z-10">
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: "0%" }}
+            exit={{ opacity: 0, y: "100%" }}
+            transition={transition}
+            className="hidden lg:flex bg-pink-100 absolute bottom-0 left-0 right-0 top-72 -z-10"
+          ></motion.div>
 
           <div className="lg:flex-1 lg:pt-32 px-4">
             <h1 className="h1">Напиши мне</h1>
@@ -38,11 +53,18 @@ export default function Contact() {
             </form>
           </div>
 
-          <div className="lg:flex-1">
-            <img src={WomanImg} alt="" />
-          </div>
+          <motion.div className="lg:flex-1">
+            <img
+              initial={{ opacity: 0, y: "100%" }}
+              animate={{ opacity: 1, y: "0%" }}
+              exit={{ opacity: 0, y: "100%" }}
+              transition={{ transition: transition, duration: 1.5 }}
+              src={WomanImg}
+              alt=""
+            />
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
