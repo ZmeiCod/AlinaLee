@@ -3,8 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { transition } from "../hooks/transitions";
 import WomanImg from "../assets/contact/woman.png";
+import { CursorContext } from "../hooks/cursorContext";
 
 export default function Contact() {
+  const { mouseEnterHandler, mouseLeaveHandler } = React.useContext(CursorContext);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
@@ -24,7 +27,8 @@ export default function Contact() {
             className="hidden lg:flex bg-pink-100 absolute bottom-0 left-0 right-0 top-72 -z-10"
           ></motion.div>
 
-          <div className="lg:flex-1 lg:pt-32 px-4">
+          <div className="lg:flex-1 lg:pt-32 px-4"  onMouseEnter={mouseEnterHandler}
+              onMouseLeave={mouseLeaveHandler}>
             <h1 className="h1">Напиши мне</h1>
             <p className="mb-12">
               Я обязательно сделать тебе идеальные фото на паспорт
@@ -59,6 +63,8 @@ export default function Contact() {
               animate={{ opacity: 1, y: "0%" }}
               exit={{ opacity: 0, y: "100%" }}
               transition={{ transition: transition, duration: 1.5 }}
+              onMouseEnter={mouseEnterHandler}
+              onMouseLeave={mouseLeaveHandler}
               src={WomanImg}
               alt=""
             />

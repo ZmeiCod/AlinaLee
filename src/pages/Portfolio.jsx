@@ -7,10 +7,12 @@ import Image2 from "../assets/portfolio/2.png";
 import Image3 from "../assets/portfolio/3.png";
 import Image4 from "../assets/portfolio/4.png";
 import { transition } from "../hooks/transitions";
+import { CursorContext } from "../hooks/cursorContext";
 
 const images = [Image1, Image2, Image3, Image4];
 
 export default function Portfolio() {
+  const { mouseEnterHandler, mouseLeaveHandler } = React.useContext(CursorContext)
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
@@ -22,7 +24,11 @@ export default function Portfolio() {
     >
       <div className="container mx-auto h-full flex items-center justify-center relative">
         <div className="flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8">
-          <div className="flex flex-col items-center lg:items-start">
+          <div
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+            className="flex flex-col items-center lg:items-start"
+          >
             <h1 className="h1">Галерея</h1>
             <Link to={"/contact"} className="btn mb-[30px] mx-auto lg:mx-0">
               Написать мне
@@ -33,6 +39,8 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-80%" }}
             transition={transition}
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
             className="grid grid-cols-2 lg:gap-2"
           >
             {images.map((image, index) => (

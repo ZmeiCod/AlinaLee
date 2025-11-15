@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import WomanImg from "../assets/about/woman.png";
 import { transition } from "../hooks/transitions";
+import { CursorContext } from "../hooks/cursorContext";
 
 export default function About() {
+  const { mouseEnterHandler, mouseLeaveHandler } = React.useContext(CursorContext)
+
   return (
     <motion.section
       initial={{ opacity: 0, y: "100%" }}
@@ -15,12 +18,14 @@ export default function About() {
       className="section"
       id="about"
     >
-      <div className="container mx-auto h-full relative">
+      <div  className="container mx-auto h-full relative">
         <div className=" flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16">
           <div className="flex-1 max-h-96 lg:max-h-max order-2 lg:order-0 overflow-hidden">
             <motion.img
               whileHover={{ scale: 1.1 }}
               transition={transition}
+              onMouseEnter={mouseEnterHandler}
+              onMouseLeave={mouseLeaveHandler}
               src={WomanImg}
               alt="Фотограф"
             />
@@ -30,6 +35,8 @@ export default function About() {
             animate={{ opacity: 1, y: "0%" }}
             exit={{ opacity: 0, y: "-80%" }}
             transition={transition}
+            onMouseEnter={mouseEnterHandler}
+              onMouseLeave={mouseLeaveHandler}
             className="flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start"
           >
             <h1 className="h1">История</h1>

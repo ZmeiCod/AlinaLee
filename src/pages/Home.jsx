@@ -45,6 +45,8 @@ export default function Home() {
               transition={transition}
               src={WomanImg}
               alt=""
+              onMouseEnter={mouseEnterHandler}
+              onMouseLeave={mouseLeaveHandler}
             />
           </div>
         </div>
